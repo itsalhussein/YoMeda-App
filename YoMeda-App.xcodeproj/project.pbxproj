@@ -7,25 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1965750A290B670700CD83ED /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19657509290B670700CD83ED /* SearchProtocols.swift */; };
+		1965750D290B67B600CD83ED /* MedicationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965750C290B67B600CD83ED /* MedicationItems.swift */; };
+		1965750F290B680A00CD83ED /* Complaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965750E290B680A00CD83ED /* Complaints.swift */; };
+		19657512290C6FD600CD83ED /* SearchItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19657510290C6FD600CD83ED /* SearchItemCell.swift */; };
+		19657513290C6FD600CD83ED /* SearchItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19657511290C6FD600CD83ED /* SearchItemCell.xib */; };
+		19657516290C71F700CD83ED /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19657515290C71F700CD83ED /* SearchRouter.swift */; };
+		19657518290C72A500CD83ED /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19657517290C72A500CD83ED /* SearchPresenter.swift */; };
+		1965751A290C72BD00CD83ED /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19657519290C72BD00CD83ED /* SearchInteractor.swift */; };
+		1965751C290C89F400CD83ED /* PMSuperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965751B290C89F400CD83ED /* PMSuperButton.swift */; };
+		1965752B290CDB5000CD83ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1965752A290CDB5000CD83ED /* Assets.xcassets */; };
+		1965752D290CE46E00CD83ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965752C290CE46E00CD83ED /* Extensions.swift */; };
 		197ACA62290A13B1007D8DC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA61290A13B1007D8DC3 /* AppDelegate.swift */; };
 		197ACA64290A13B1007D8DC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */; };
-		197ACA66290A13B1007D8DC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA65290A13B1007D8DC3 /* ViewController.swift */; };
-		197ACA69290A13B1007D8DC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ACA67290A13B1007D8DC3 /* Main.storyboard */; };
 		197ACA6C290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA6A290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld */; };
-		197ACA6E290A13B6007D8DC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 197ACA6D290A13B6007D8DC3 /* Assets.xcassets */; };
 		197ACA71290A13B6007D8DC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ACA6F290A13B6007D8DC3 /* LaunchScreen.storyboard */; };
+		197ACA84290B2478007D8DC3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA82290B2478007D8DC3 /* SearchVC.swift */; };
+		197ACA85290B2478007D8DC3 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197ACA83290B2478007D8DC3 /* SearchVC.xib */; };
+		197ACA89290B44F9007D8DC3 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA88290B44F9007D8DC3 /* ShadowView.swift */; };
+		197F1E9D290DED5700844BD9 /* CartItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1E9C290DED5700844BD9 /* CartItemEntity.swift */; };
+		197F1EA0290DFD9500844BD9 /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1E9F290DFD9500844BD9 /* CartInteractor.swift */; };
+		197F1EA2290DFDA200844BD9 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1EA1290DFDA200844BD9 /* CartPresenter.swift */; };
+		197F1EA4290DFDB500844BD9 /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1EA3290DFDB500844BD9 /* CartRouter.swift */; };
+		197F1EA7290DFDCB00844BD9 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1EA5290DFDCB00844BD9 /* CartVC.swift */; };
+		197F1EA8290DFDCB00844BD9 /* CartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 197F1EA6290DFDCB00844BD9 /* CartVC.xib */; };
+		197F1EAE290E281800844BD9 /* CartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1EAD290E281800844BD9 /* CartProtocols.swift */; };
+		1989512A290EA5D2006BEAC6 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19895128290EA5D1006BEAC6 /* CartItemCell.swift */; };
+		1989512B290EA5D2006BEAC6 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19895129290EA5D1006BEAC6 /* CartItemCell.xib */; };
+		260843E5B6C0070B43328B7E /* Pods_YoMeda_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF43A9BD72189D986BDC44E /* Pods_YoMeda_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00B2CF418BC33BB6A379DC6D /* Pods-YoMeda-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoMeda-App.release.xcconfig"; path = "Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App.release.xcconfig"; sourceTree = "<group>"; };
+		19657509290B670700CD83ED /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		1965750C290B67B600CD83ED /* MedicationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationItems.swift; sourceTree = "<group>"; };
+		1965750E290B680A00CD83ED /* Complaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complaints.swift; sourceTree = "<group>"; };
+		19657510290C6FD600CD83ED /* SearchItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemCell.swift; sourceTree = "<group>"; };
+		19657511290C6FD600CD83ED /* SearchItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchItemCell.xib; sourceTree = "<group>"; };
+		19657515290C71F700CD83ED /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		19657517290C72A500CD83ED /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		19657519290C72BD00CD83ED /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		1965751B290C89F400CD83ED /* PMSuperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMSuperButton.swift; sourceTree = "<group>"; };
+		1965752A290CDB5000CD83ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1965752C290CE46E00CD83ED /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		197ACA5E290A13B0007D8DC3 /* YoMeda-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YoMeda-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		197ACA61290A13B1007D8DC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		197ACA65290A13B1007D8DC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		197ACA68290A13B1007D8DC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		197ACA6B290A13B1007D8DC3 /* YoMeda_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YoMeda_App.xcdatamodel; sourceTree = "<group>"; };
-		197ACA6D290A13B6007D8DC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		197ACA70290A13B6007D8DC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		197ACA72290A13B6007D8DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		197ACA82290B2478007D8DC3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		197ACA83290B2478007D8DC3 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		197ACA88290B44F9007D8DC3 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		197F1E9C290DED5700844BD9 /* CartItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemEntity.swift; sourceTree = "<group>"; };
+		197F1E9F290DFD9500844BD9 /* CartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
+		197F1EA1290DFDA200844BD9 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		197F1EA3290DFDB500844BD9 /* CartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
+		197F1EA5290DFDCB00844BD9 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		197F1EA6290DFDCB00844BD9 /* CartVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartVC.xib; sourceTree = "<group>"; };
+		197F1EAD290E281800844BD9 /* CartProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProtocols.swift; sourceTree = "<group>"; };
+		19895128290EA5D1006BEAC6 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		19895129290EA5D1006BEAC6 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		1AF43A9BD72189D986BDC44E /* Pods_YoMeda_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoMeda_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03120379DCD08E74532C6F0 /* Pods-YoMeda-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoMeda-App.debug.xcconfig"; path = "Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +77,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				260843E5B6C0070B43328B7E /* Pods_YoMeda_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0399AAB6CF22DC6E645C12A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C03120379DCD08E74532C6F0 /* Pods-YoMeda-App.debug.xcconfig */,
+				00B2CF418BC33BB6A379DC6D /* Pods-YoMeda-App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		1965750B290B670A00CD83ED /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				19657509290B670700CD83ED /* SearchProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		19657514290C6FDA00CD83ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19657510290C6FD600CD83ED /* SearchItemCell.swift */,
+				19657511290C6FD600CD83ED /* SearchItemCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		197ACA55290A13B0007D8DC3 = {
 			isa = PBXGroup;
 			children = (
 				197ACA60290A13B0007D8DC3 /* YoMeda-App */,
 				197ACA5F290A13B0007D8DC3 /* Products */,
+				0399AAB6CF22DC6E645C12A0 /* Pods */,
+				5CE9A9042C81809A4D3DB5A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +131,187 @@
 		197ACA60290A13B0007D8DC3 /* YoMeda-App */ = {
 			isa = PBXGroup;
 			children = (
-				197ACA61290A13B1007D8DC3 /* AppDelegate.swift */,
-				197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */,
-				197ACA65290A13B1007D8DC3 /* ViewController.swift */,
-				197ACA67290A13B1007D8DC3 /* Main.storyboard */,
-				197ACA6D290A13B6007D8DC3 /* Assets.xcassets */,
-				197ACA6F290A13B6007D8DC3 /* LaunchScreen.storyboard */,
+				197ACA80290B22F1007D8DC3 /* CoreData */,
+				197ACA78290B215C007D8DC3 /* Modules */,
+				197ACA81290B230A007D8DC3 /* Common */,
+				197ACA87290B44DA007D8DC3 /* Resources */,
 				197ACA72290A13B6007D8DC3 /* Info.plist */,
-				197ACA6A290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld */,
 			);
 			path = "YoMeda-App";
+			sourceTree = "<group>";
+		};
+		197ACA78290B215C007D8DC3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				197ACA79290B2166007D8DC3 /* Search */,
+				197ACA7A290B2194007D8DC3 /* Cart */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		197ACA79290B2166007D8DC3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				197ACA7F290B2272007D8DC3 /* View */,
+				197ACA7E290B226D007D8DC3 /* Interactor */,
+				197ACA7D290B226B007D8DC3 /* Presenter */,
+				197ACA7C290B2268007D8DC3 /* Entity */,
+				197ACA7B290B2260007D8DC3 /* Router */,
+				1965750B290B670A00CD83ED /* Protocols */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		197ACA7A290B2194007D8DC3 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				197F1E9E290DFD8100844BD9 /* Entity */,
+				197F1EAC290DFDEC00844BD9 /* Interactor */,
+				197F1EAB290DFDE300844BD9 /* Presenter */,
+				197F1EAA290DFDDC00844BD9 /* Router */,
+				197F1EA9290DFDD400844BD9 /* View */,
+				197F1EAF290E281C00844BD9 /* Protocols */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		197ACA7B290B2260007D8DC3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				19657515290C71F700CD83ED /* SearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		197ACA7C290B2268007D8DC3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1965750C290B67B600CD83ED /* MedicationItems.swift */,
+				1965750E290B680A00CD83ED /* Complaints.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		197ACA7D290B226B007D8DC3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				19657517290C72A500CD83ED /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		197ACA7E290B226D007D8DC3 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				19657519290C72BD00CD83ED /* SearchInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		197ACA7F290B2272007D8DC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				197ACA82290B2478007D8DC3 /* SearchVC.swift */,
+				197ACA83290B2478007D8DC3 /* SearchVC.xib */,
+				19657514290C6FDA00CD83ED /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		197ACA80290B22F1007D8DC3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				197ACA6A290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		197ACA81290B230A007D8DC3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1965752A290CDB5000CD83ED /* Assets.xcassets */,
+				197ACA61290A13B1007D8DC3 /* AppDelegate.swift */,
+				197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */,
+				197ACA6F290A13B6007D8DC3 /* LaunchScreen.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		197ACA87290B44DA007D8DC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				197ACA88290B44F9007D8DC3 /* ShadowView.swift */,
+				1965751B290C89F400CD83ED /* PMSuperButton.swift */,
+				1965752C290CE46E00CD83ED /* Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		197F1E9E290DFD8100844BD9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				197F1E9C290DED5700844BD9 /* CartItemEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		197F1EA9290DFDD400844BD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				197F1EA5290DFDCB00844BD9 /* CartVC.swift */,
+				197F1EA6290DFDCB00844BD9 /* CartVC.xib */,
+				1989512C290EA5D6006BEAC6 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		197F1EAA290DFDDC00844BD9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				197F1EA3290DFDB500844BD9 /* CartRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		197F1EAB290DFDE300844BD9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				197F1EA1290DFDA200844BD9 /* CartPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		197F1EAC290DFDEC00844BD9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				197F1E9F290DFD9500844BD9 /* CartInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		197F1EAF290E281C00844BD9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				197F1EAD290E281800844BD9 /* CartProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1989512C290EA5D6006BEAC6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19895128290EA5D1006BEAC6 /* CartItemCell.swift */,
+				19895129290EA5D1006BEAC6 /* CartItemCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5CE9A9042C81809A4D3DB5A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AF43A9BD72189D986BDC44E /* Pods_YoMeda_App.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +321,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 197ACA75290A13B6007D8DC3 /* Build configuration list for PBXNativeTarget "YoMeda-App" */;
 			buildPhases = (
+				90D3C92BB13E651DF863D9DB /* [CP] Check Pods Manifest.lock */,
 				197ACA5A290A13B0007D8DC3 /* Sources */,
 				197ACA5B290A13B0007D8DC3 /* Frameworks */,
 				197ACA5C290A13B0007D8DC3 /* Resources */,
+				C0A4E345DE4382EC6E49F261 /* [CP] Embed Pods Frameworks */,
+				197ACA86290B2677007D8DC3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -128,37 +375,108 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19657513290C6FD600CD83ED /* SearchItemCell.xib in Resources */,
 				197ACA71290A13B6007D8DC3 /* LaunchScreen.storyboard in Resources */,
-				197ACA6E290A13B6007D8DC3 /* Assets.xcassets in Resources */,
-				197ACA69290A13B1007D8DC3 /* Main.storyboard in Resources */,
+				197F1EA8290DFDCB00844BD9 /* CartVC.xib in Resources */,
+				1965752B290CDB5000CD83ED /* Assets.xcassets in Resources */,
+				1989512B290EA5D2006BEAC6 /* CartItemCell.xib in Resources */,
+				197ACA85290B2478007D8DC3 /* SearchVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		197ACA86290B2677007D8DC3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		90D3C92BB13E651DF863D9DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoMeda-App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0A4E345DE4382EC6E49F261 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		197ACA5A290A13B0007D8DC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				197ACA66290A13B1007D8DC3 /* ViewController.swift in Sources */,
+				197F1EA4290DFDB500844BD9 /* CartRouter.swift in Sources */,
+				197F1E9D290DED5700844BD9 /* CartItemEntity.swift in Sources */,
+				1989512A290EA5D2006BEAC6 /* CartItemCell.swift in Sources */,
+				19657518290C72A500CD83ED /* SearchPresenter.swift in Sources */,
+				1965752D290CE46E00CD83ED /* Extensions.swift in Sources */,
+				1965751C290C89F400CD83ED /* PMSuperButton.swift in Sources */,
+				197ACA84290B2478007D8DC3 /* SearchVC.swift in Sources */,
 				197ACA62290A13B1007D8DC3 /* AppDelegate.swift in Sources */,
 				197ACA6C290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld in Sources */,
+				19657512290C6FD600CD83ED /* SearchItemCell.swift in Sources */,
+				1965750A290B670700CD83ED /* SearchProtocols.swift in Sources */,
+				197F1EA7290DFDCB00844BD9 /* CartVC.swift in Sources */,
+				1965751A290C72BD00CD83ED /* SearchInteractor.swift in Sources */,
 				197ACA64290A13B1007D8DC3 /* SceneDelegate.swift in Sources */,
+				197F1EAE290E281800844BD9 /* CartProtocols.swift in Sources */,
+				19657516290C71F700CD83ED /* SearchRouter.swift in Sources */,
+				197F1EA2290DFDA200844BD9 /* CartPresenter.swift in Sources */,
+				1965750F290B680A00CD83ED /* Complaints.swift in Sources */,
+				197ACA89290B44F9007D8DC3 /* ShadowView.swift in Sources */,
+				197F1EA0290DFD9500844BD9 /* CartInteractor.swift in Sources */,
+				1965750D290B67B600CD83ED /* MedicationItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		197ACA67290A13B1007D8DC3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				197ACA68290A13B1007D8DC3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		197ACA6F290A13B6007D8DC3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -227,6 +545,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -288,6 +607,7 @@
 		};
 		197ACA76290A13B6007D8DC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C03120379DCD08E74532C6F0 /* Pods-YoMeda-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -298,9 +618,9 @@
 				INFOPLIST_FILE = "YoMeda-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,12 +630,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		197ACA77290A13B6007D8DC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00B2CF418BC33BB6A379DC6D /* Pods-YoMeda-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -326,9 +647,9 @@
 				INFOPLIST_FILE = "YoMeda-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,7 +659,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
