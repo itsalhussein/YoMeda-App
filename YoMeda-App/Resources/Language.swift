@@ -122,8 +122,6 @@ extension UIView {
             lbl.text = lbl.text?.localiz()
         case let btn as UIButton:
             btn.setTitle(btn.title(for: .normal)?.localiz(), for: .normal)
-            // case let txtf as UIImageView:
-            // txtf.image =   txtf.image?.imageFlippedForRightToLeftLayoutDirection()
         default:
             break
         }
