@@ -7,3 +7,12 @@
 */
 
 "Search" = "البحث";
+"LE" = "جنيه";
+"Items" = "x المنتجات";
+"Confirm" = "تأكيد الطلب";
+"Add to Cart" = "أضف للقائمة  ";
+"Cart" = "السلة";
+
+"deliveryFeesLabel" = "رسوم التوصيل";
+"deliveryFeesValue" = "تختلف حسب المنطقة";
+"checkoutNoteLabel" = "اسعار المنتجات قد تختلف باختلاف الصيدليات";

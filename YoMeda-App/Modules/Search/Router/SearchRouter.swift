@@ -8,37 +8,28 @@
 import Foundation
 import UIKit
 
-typealias EntryPoint = SearchViewProtocol & UIViewController
 
-@available(iOS 13.0, *)
 class SearchRouter : SearchRouterProtocol {
     
-    var entry: EntryPoint?
     var navigationController: UINavigationController?
     
-    static func start() -> SearchRouterProtocol {
+    func createModule() -> UIViewController {
+
+        let view = SearchVC(nibName: "SearchVC", bundle: nil)
+        let interactor = SearchInteractor()
         let router = SearchRouter()
-        var view : SearchViewProtocol = SearchVC()
-        var presenter : SearchPresenterProtocol = SearchPresenter()
-        var interactor : SearchInteractorProtocol = SearchInteractor()
-        
+        let navigation = UINavigationController(rootViewController: view)
+        let presenter = SearchPresenter(view: view, interactor: interactor, router: router)
+
         view.presenter = presenter
         interactor.presenter = presenter
-        presenter.router = router
-        presenter.view = view
-        presenter.interactor = interactor
-        router.entry = view as? EntryPoint
+        router.navigationController = navigation
         
-        return router
+        return navigation
     }
     func routeToCart() {
         let cart = CartRouter.createModule()
-        if let nav = self.entry {
-            cart.modalPresentationStyle = .overCurrentContext
-            cart.modalTransitionStyle = .crossDissolve
-            nav.present(cart, animated: true, completion: nil)
-        }else{
-            print("navigation controller not found")
-        }
+        self.navigationController?.pushViewController(cart, animated: true)
+      
     }
 }

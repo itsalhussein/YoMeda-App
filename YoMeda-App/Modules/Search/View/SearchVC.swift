@@ -18,30 +18,31 @@ class SearchVC: UIViewController{
     @IBOutlet weak var cartCountLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var confirmView: ShadowView!
+    @IBOutlet weak var backButton: UIButton!
     
     //MARK: - Properties
     var presenter: SearchPresenterProtocol?
-    var searchActive : Bool = false
 
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        localization()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
         tableView.register(SearchItemCell.nib, forCellReuseIdentifier: SearchItemCell.identifier)
-        UserDefaultsConstants.cartCount = 0
-        UserDefaultsConstants.totalAmount = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        localization()
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isToolbarHidden = true
         NotificationCenter.default
             .addObserver(self,
                          selector:#selector(updateTotal(_:)),
                          name: NSNotification.Name ("showTotalData"),
                          object: nil)
+        searchBar.text = ""
     }
     //MARK: - Methods
     
@@ -52,16 +53,23 @@ class SearchVC: UIViewController{
             self.confirmView.isHidden = false
         }
         self.cartCountLabel.text = "\(UserDefaultsConstants.cartCount)"
-        self.totalPriceLabel.text = "\(UserDefaultsConstants.totalAmount)"
+        self.totalPriceLabel.text = "\(UserDefaultsConstants.totalAmount)" + " " + "LE".localiz()
     }
     
     func localization(){
         titleLabel.text = "Search".localiz()
+        confirmLabel.text = "Confirm".localiz()
+        if Language.currentLanguage() == "ar" {
+            backButton.setImage(UIImage(named: "ic_backAR"), for: .normal)
+        } else {
+            backButton.setImage(UIImage(named: "ic_back"), for: .normal)
+        }
     }
     
     
     //MARK: - Actions
     @IBAction func changeLanguageAction(_ sender: UIButton) {
+        Language.showLanguageActionSheet(self)
     }
     @IBAction func backAction(_ sender: UIButton) {
     }

@@ -21,7 +21,6 @@
 		1965752D290CE46E00CD83ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965752C290CE46E00CD83ED /* Extensions.swift */; };
 		196A62EB291077B1003D07C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A62EA291077B1003D07C3 /* UserDefaults.swift */; };
 		197ACA62290A13B1007D8DC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA61290A13B1007D8DC3 /* AppDelegate.swift */; };
-		197ACA64290A13B1007D8DC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */; };
 		197ACA6C290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA6A290A13B1007D8DC3 /* YoMeda_App.xcdatamodeld */; };
 		197ACA71290A13B6007D8DC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197ACA6F290A13B6007D8DC3 /* LaunchScreen.storyboard */; };
 		197ACA84290B2478007D8DC3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ACA82290B2478007D8DC3 /* SearchVC.swift */; };
@@ -57,7 +56,6 @@
 		196A62EA291077B1003D07C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		197ACA5E290A13B0007D8DC3 /* YoMeda-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YoMeda-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		197ACA61290A13B1007D8DC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		197ACA6B290A13B1007D8DC3 /* YoMeda_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YoMeda_App.xcdatamodel; sourceTree = "<group>"; };
 		197ACA70290A13B6007D8DC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		197ACA72290A13B6007D8DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 			children = (
 				1965752A290CDB5000CD83ED /* Assets.xcassets */,
 				197ACA61290A13B1007D8DC3 /* AppDelegate.swift */,
-				197ACA63290A13B1007D8DC3 /* SceneDelegate.swift */,
 				197ACA6F290A13B6007D8DC3 /* LaunchScreen.storyboard */,
 			);
 			path = Common;
@@ -483,7 +480,6 @@
 				1965750A290B670700CD83ED /* SearchProtocols.swift in Sources */,
 				197F1EA7290DFDCB00844BD9 /* CartVC.swift in Sources */,
 				1965751A290C72BD00CD83ED /* SearchInteractor.swift in Sources */,
-				197ACA64290A13B1007D8DC3 /* SceneDelegate.swift in Sources */,
 				196A62EB291077B1003D07C3 /* UserDefaults.swift in Sources */,
 				197F1EAE290E281800844BD9 /* CartProtocols.swift in Sources */,
 				19657516290C71F700CD83ED /* SearchRouter.swift in Sources */,
@@ -651,6 +647,8 @@
 				INFOPLIST_FILE = "YoMeda-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -680,6 +678,8 @@
 				INFOPLIST_FILE = "YoMeda-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

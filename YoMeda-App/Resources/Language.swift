@@ -66,6 +66,30 @@ class Language {
         }
         
     }
+    class func showLanguageActionSheet(_ view: UIViewController){
+        let alert = UIAlertController(title: "Choose Language", message: "Please choose your preferred language", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "English", style: .default, handler: { (_) in
+            print("User click English button")
+            Language.setAppLanguage(language: "en")
+            view.toroot()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Arabic", style: .default, handler: { (_) in
+            print("User click Arabic button")
+            Language.setAppLanguage(language: "ar")
+            view.toroot()
+            print(Language.currentLanguage())
+        }))
+
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { (_) in
+            print("User click Dismiss button")
+        }))
+        
+        view.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+        
+    }
     
 }
 // MARK: Swizzling

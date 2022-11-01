@@ -13,7 +13,13 @@ class SearchPresenter : SearchPresenterProtocol {
     var interactor: SearchInteractorProtocol?
     var router: SearchRouterProtocol?
 
-    var medsList : [CartItemEntity]? 
+    var medsList : [CartItemEntity]?
+    
+    init(view: SearchViewProtocol, interactor: SearchInteractorProtocol?, router: SearchRouterProtocol) {
+           self.view = view
+           self.interactor = interactor
+           self.router = router
+    }
     
     func startLoading(queryText: String){
         interactor?.fetchItems(queryText: queryText)

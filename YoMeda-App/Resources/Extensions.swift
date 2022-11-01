@@ -15,18 +15,6 @@ extension String {
 }
 
 extension UINavigationController {
-    
-    //    func setStatusBar(backgroundColor: UIColor) {
-    //        let statusBarFrame: CGRect
-    //        if #available(iOS 13.0, *) {
-    //            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
-    //        } else {
-    //            statusBarFrame = UIApplication.shared.statusBarFrame
-    //        }
-    //        let statusBarView = UIView(frame: statusBarFrame)
-    //        statusBarView.backgroundColor = backgroundColor
-    //        view.addSubview(statusBarView)
-    //    }
     func setNavBarImage(_ image:UIImage?) {
         
         guard let image = image  else {return}
@@ -41,5 +29,18 @@ extension UINavigationController {
     }
     
 }
+
+extension UIViewController{
+    func toroot() {
+            AppDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+            let router = SearchRouter()
+            let initialVC = router.createModule()
+            AppDelegate.window?.rootViewController = initialVC
+            AppDelegate.window?.makeKeyAndVisible()
+    }
+    
+   
+}
+
 
 

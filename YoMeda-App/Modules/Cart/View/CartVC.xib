@@ -90,14 +90,26 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkH-qJ-zf0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="13p-Cq-H9o"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="BkH-qJ-zf0" firstAttribute="leading" secondItem="Tgm-mL-lTH" secondAttribute="leading" id="HmL-U5-SSe"/>
+                                <constraint firstAttribute="trailing" secondItem="BkH-qJ-zf0" secondAttribute="trailing" id="IDp-BL-gnc"/>
                                 <constraint firstAttribute="bottom" secondItem="28j-lT-2sc" secondAttribute="bottom" id="N0h-mA-kf0"/>
                                 <constraint firstItem="28j-lT-2sc" firstAttribute="leading" secondItem="Tgm-mL-lTH" secondAttribute="leading" constant="16" id="PIj-by-B8R"/>
                                 <constraint firstAttribute="height" constant="44" id="Upo-gm-etz"/>
+                                <constraint firstAttribute="bottom" secondItem="BkH-qJ-zf0" secondAttribute="bottom" id="uP2-hv-UgI"/>
                                 <constraint firstAttribute="trailing" secondItem="28j-lT-2sc" secondAttribute="trailing" constant="16" id="vwU-Ni-t2R"/>
                                 <constraint firstItem="28j-lT-2sc" firstAttribute="top" secondItem="Tgm-mL-lTH" secondAttribute="top" id="yyx-bC-ICd"/>
+                                <constraint firstItem="BkH-qJ-zf0" firstAttribute="top" secondItem="Tgm-mL-lTH" secondAttribute="top" id="zef-Yv-rWm"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-ho-qpR" customClass="ShadowView" customModule="YoMeda_App" customModuleProvider="target">

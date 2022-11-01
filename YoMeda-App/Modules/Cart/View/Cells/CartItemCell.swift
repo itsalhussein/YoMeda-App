@@ -56,6 +56,11 @@ class CartItemCell: UITableViewCell {
         self.itemImage.sd_setImage(with: URL(string: medPicURL), placeholderImage: UIImage(named: "ic_tempMed"), context: [.imageTransformer: transformer])
 
         self.itemName.text = cellData.englishName
+        if Language.currentLanguage() == "en"{
+            self.itemName.text = cellData.englishName
+        } else {
+            self.itemName.text = cellData.arabicName
+        }
         self.itemPrice.text = "\(cellData.price)"
         self.itemCount.text = "\(cellData.count)"
     }

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 import CoreData
 
-@available(iOS 13.0, *)
 class SearchInteractor : SearchInteractorProtocol {
     
     var presenter: SearchPresenterProtocol?
@@ -18,7 +17,7 @@ class SearchInteractor : SearchInteractorProtocol {
     func fetchItems(queryText: String) {
         let parameters = [
             "indexFrom": "0",
-            "indexTo": "20",
+            "indexTo": "200",
             "searchKey": queryText
         ]
         let url = URL(string: "http://40.127.194.127:5656/Salamtak/GetMedicationItems")!

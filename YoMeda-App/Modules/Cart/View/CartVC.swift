@@ -31,29 +31,42 @@ class CartVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CartItemCell.nib, forCellReuseIdentifier: CartItemCell.identifier)
-        setupUI()
-        self.presenter?.interactor?.fetchItems()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        localization()
+        setupUI()
+        self.presenter?.interactor?.fetchItems()
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.isToolbarHidden = true
     }
     
     func localization(){
-        
+        if Language.currentLanguage() == "ar" {
+            backButton.setImage(UIImage(named: "ic_backAR"), for: .normal)
+        } else {
+            backButton.setImage(UIImage(named: "ic_back"), for: .normal)
+        }
+        cartTitle.text = "Cart".localiz()
+        deliveryFeesLabel.text = "deliveryFeesLabel".localiz()
+        deliveryFeesValue.text = "deliveryFeesValue".localiz()
+        checkoutNoteLabel.text = "checkoutNoteLabel".localiz()
     }
     
     func setupUI(){
         itemsTotalValue.text = "\(UserDefaultsConstants.totalAmount)"
-        itemsCountLabel.text = "Items".localiz() + " x \(UserDefaultsConstants.cartCount)"
+        itemsCountLabel.text = "Items".localiz() + "\(UserDefaultsConstants.cartCount)"
     }
     
     @IBAction func languageAction(_ sender: UIButton) {
+        Language.showLanguageActionSheet(self)
     }
     
     @IBAction func backAction(_ sender: UIButton) {
+        presenter?.back()
+    }
+    @IBAction func searchAction(_ sender: UIButton) {
         presenter?.back()
     }
 }
@@ -81,8 +94,6 @@ extension CartVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartItemCell.identifier, for: indexPath) as! CartItemCell
         var cellData = presenter?.getMedItem(at: indexPath)
-        cell.configreCell(cellData: cellData)
-        print("CELL DATA ", cellData)
         cell.deleteBTNClicked = {
             print("DELETE CLICKED")
             UserDefaultsConstants.cartCount -= cellData!.count
@@ -92,33 +103,43 @@ extension CartVC:UITableViewDelegate,UITableViewDataSource{
         }
         cell.minusBTNClicked = {
             print("MINUS BTN CLICKED")
-            if (cellData!.count == 1) {
-                cell.deleteBTNClicked?()
+            var newCount = cellData!.count
+            newCount -= 1
+            if (newCount == 0) {
+                print("DELETE CLICKED")
+                UserDefaultsConstants.cartCount -= cellData!.count
+                UserDefaultsConstants.totalAmount -= cellData!.price
+                self.presenter?.deleteMedItem(with: cellData?.itemID ?? "")
+                self.setupUI()
             } else {
-                cell.itemCount.text = "\(cellData!.count -= 1)"
+                cell.itemCount.text = "\(newCount)"
                 UserDefaultsConstants.cartCount -= 1
                 UserDefaultsConstants.totalAmount -= cellData!.price
                 NotificationCenter.default
                     .post(name: Notification.Name("showTotalData"), object: nil)
             }
+            self.presenter?.updateMedItem(with: cellData?.itemID ?? "", count: cellData?.count ?? 0)
             self.setupUI()
+            cellData?.count = newCount
         }
         cell.plusBTNClicked = {
             print("PLUS BTN CLICKED")
-            cell.itemCount.text = "\(cellData!.count += 1)"
+            var newCount = cellData!.count
+            newCount += 1
+            cell.itemCount.text = "\(String(describing: newCount))"
             UserDefaultsConstants.cartCount += 1
             UserDefaultsConstants.totalAmount += cellData!.price
             NotificationCenter.default
                 .post(name: Notification.Name("showTotalData"), object: nil)
+            self.presenter?.updateMedItem(with: cellData?.itemID ?? "", count: cellData?.count ?? 0)
             self.setupUI()
+            cellData?.count = newCount
         }
+        cell.configreCell(cellData: cellData)
+        print("CELL DATA ", cellData)
         return cell
     }
     
     
 }
-//MARK: - Properties
 
-extension CartVC:UISearchBarDelegate{
-    
-}

@@ -50,9 +50,7 @@ protocol SearchPresenterProtocol {
 //MARK: - Router Protocol
 
 protocol SearchRouterProtocol {
-    var entry : EntryPoint? { get }
-    
-    static func start() -> SearchRouterProtocol
+    func createModule() -> UIViewController
 
     func routeToCart()
 }

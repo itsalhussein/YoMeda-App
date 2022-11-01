@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchVC" customModule="YoMeda_App" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="J2n-hd-fdb" id="N1L-sq-Kbr"/>
                 <outlet property="cartCountLabel" destination="hcV-c8-4hz" id="1J1-vy-zIO"/>
                 <outlet property="confirmLabel" destination="nTU-Uh-9X3" id="VfX-OM-pHy"/>
                 <outlet property="confirmView" destination="8IB-nK-y1W" id="DPd-qZ-8Gc"/>
@@ -41,7 +42,6 @@
                                         <constraint firstAttribute="width" constant="72" id="UmL-x0-eWX"/>
                                     </constraints>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" image="ic_back"/>
                                     <connections>
                                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="ZyK-Xb-xi2"/>
                                     </connections>
@@ -220,7 +220,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_back" width="24.5" height="19.5"/>
         <image name="ic_background" width="1172" height="973"/>
         <image name="ic_cart" width="29.5" height="24.5"/>
         <image name="ic_language" width="22.5" height="19.5"/>

@@ -68,7 +68,13 @@ class SearchItemCell: UITableViewCell {
         let medPicURL = medPicture.removingWhitespaces()
         let transformer = SDImageResizingTransformer(size: CGSize(width: self.itemImage.frame.width, height: self.itemImage.frame.height), scaleMode: .fill)
         self.itemImage.sd_setImage(with: URL(string: medPicURL), placeholderImage: UIImage(named: "ic_tempMed"), context: [.imageTransformer: transformer])
-        self.itemName.text = cellModel.englishName
+        if Language.currentLanguage() == "en"{
+            self.itemName.text = cellModel.englishName
+            addToCartButton.setTitle("Add to Cart".localiz(), for: .normal)
+        } else {
+            self.itemName.text = cellModel.arabicName
+            addToCartButton.setTitle("Add to Cart".localiz(), for: .normal)
+        }
         self.itemPrice.text = "\(cellModel.price)"
         self.itemCount.text = "\(cellModel.count)"
         

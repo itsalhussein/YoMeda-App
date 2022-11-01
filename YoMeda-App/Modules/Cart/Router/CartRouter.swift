@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
 class CartRouter : CartRouterProtocol {
     weak var viewController: UIViewController?
 
@@ -16,7 +15,7 @@ class CartRouter : CartRouterProtocol {
         let interactor = CartInteractor()
         let router = CartRouter()
         let presenter = CartPresenter(view: view, interactor: interactor, router: router)
-        
+
         view.presenter = presenter
         interactor.presenter = presenter
         router.viewController = view
@@ -25,7 +24,13 @@ class CartRouter : CartRouterProtocol {
     }
     
     func routeToSearch() {
-        self.viewController?.dismiss(animated: true)
+        if UserDefaultsConstants.cartCount == 0 {
+            UserDefaultsConstants.totalAmount = 0
+            UserDefaultsConstants.cartCount = 0
+            NotificationCenter.default
+                .post(name: Notification.Name("showTotalData"), object: nil)
+        }
+        self.viewController?.navigationController?.popToRootViewController(animated: true)
     }
     
 }
