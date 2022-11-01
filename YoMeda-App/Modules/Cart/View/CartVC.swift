@@ -31,13 +31,23 @@ class CartVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CartItemCell.nib, forCellReuseIdentifier: CartItemCell.identifier)
+        setupUI()
+        self.presenter?.interactor?.fetchItems()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.isToolbarHidden = true
-        self.presenter?.interactor?.fetchItems()
+    }
+    
+    func localization(){
+        
+    }
+    
+    func setupUI(){
+        itemsTotalValue.text = "\(UserDefaultsConstants.totalAmount)"
+        itemsCountLabel.text = "Items".localiz() + " x \(UserDefaultsConstants.cartCount)"
     }
     
     @IBAction func languageAction(_ sender: UIButton) {
@@ -70,18 +80,37 @@ extension CartVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartItemCell.identifier, for: indexPath) as! CartItemCell
-        let cellData = presenter?.getMedItem(at: indexPath)
+        var cellData = presenter?.getMedItem(at: indexPath)
         cell.configreCell(cellData: cellData)
         print("CELL DATA ", cellData)
         cell.deleteBTNClicked = {
             print("DELETE CLICKED")
+            UserDefaultsConstants.cartCount -= cellData!.count
+            UserDefaultsConstants.totalAmount -= cellData!.price
             self.presenter?.deleteMedItem(with: cellData?.itemID ?? "")
+            self.setupUI()
         }
         cell.minusBTNClicked = {
             print("MINUS BTN CLICKED")
+            if (cellData!.count == 1) {
+                cell.deleteBTNClicked?()
+            } else {
+                cell.itemCount.text = "\(cellData!.count -= 1)"
+                UserDefaultsConstants.cartCount -= 1
+                UserDefaultsConstants.totalAmount -= cellData!.price
+                NotificationCenter.default
+                    .post(name: Notification.Name("showTotalData"), object: nil)
+            }
+            self.setupUI()
         }
         cell.plusBTNClicked = {
-            print("MINUS BTN CLICKED")
+            print("PLUS BTN CLICKED")
+            cell.itemCount.text = "\(cellData!.count += 1)"
+            UserDefaultsConstants.cartCount += 1
+            UserDefaultsConstants.totalAmount += cellData!.price
+            NotificationCenter.default
+                .post(name: Notification.Name("showTotalData"), object: nil)
+            self.setupUI()
         }
         return cell
     }

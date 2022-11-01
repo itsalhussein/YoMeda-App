@@ -40,7 +40,7 @@ class SearchItemCell: UITableViewCell {
     var addToCartClosure : (()->())?
     var minusClosure : (()->())?
     var plusClosure : (()->())?
-    var saveItemToCart : ((_ itemCount: Int)->())?
+    var saveItemToCart : (()->())?
     var itemsCount = 0
     var indexPathForCell: IndexPath?
     
@@ -83,6 +83,7 @@ class SearchItemCell: UITableViewCell {
             addToCartButton.isHidden = true
             plusAndMinusView.isHidden = false
             addToCartClosure?()
+            saveItemToCart?()
         case 1:
             //MINUS BUTTON CASE
             minusClosure?()

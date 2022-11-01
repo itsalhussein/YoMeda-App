@@ -93,5 +93,31 @@ class SearchInteractor : SearchInteractorProtocol {
             print("Could not save. \(error), \(error.userInfo)")
           }
     }
-  
+    
+    func updateCoreDataItem(itemId: String, count : Int){
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+                    return
+                }
+        let managedContext =
+        appDelegate.persistentContainer.viewContext
+        let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "ItemEntity")
+        let predicate = NSPredicate(format: "itemID == %@", itemId as CVarArg)
+        fetchRequest.predicate = predicate
+        do {
+            let req = try managedContext.fetch(fetchRequest)
+            for object in req {
+                object.setValue(count, forKey: "count")
+            }
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+            
+        } catch let error as NSError {
+            print("Could not update. \(error), \(error.userInfo)")
+        }
+    }
 }

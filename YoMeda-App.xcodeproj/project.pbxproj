@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1916186729109D18001D7F14 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1916186629109D18001D7F14 /* Language.swift */; };
 		1965750A290B670700CD83ED /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19657509290B670700CD83ED /* SearchProtocols.swift */; };
 		1965750D290B67B600CD83ED /* MedicationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965750C290B67B600CD83ED /* MedicationItems.swift */; };
 		1965750F290B680A00CD83ED /* Complaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965750E290B680A00CD83ED /* Complaints.swift */; };
@@ -35,11 +36,13 @@
 		197F1EAE290E281800844BD9 /* CartProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197F1EAD290E281800844BD9 /* CartProtocols.swift */; };
 		1989512A290EA5D2006BEAC6 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19895128290EA5D1006BEAC6 /* CartItemCell.swift */; };
 		1989512B290EA5D2006BEAC6 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19895129290EA5D1006BEAC6 /* CartItemCell.xib */; };
+		19C67E1429112BF1009AE5C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19C67E1629112BF1009AE5C7 /* Localizable.strings */; };
 		260843E5B6C0070B43328B7E /* Pods_YoMeda_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF43A9BD72189D986BDC44E /* Pods_YoMeda_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00B2CF418BC33BB6A379DC6D /* Pods-YoMeda-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoMeda-App.release.xcconfig"; path = "Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App.release.xcconfig"; sourceTree = "<group>"; };
+		1916186629109D18001D7F14 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		19657509290B670700CD83ED /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		1965750C290B67B600CD83ED /* MedicationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationItems.swift; sourceTree = "<group>"; };
 		1965750E290B680A00CD83ED /* Complaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complaints.swift; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 		197F1EAD290E281800844BD9 /* CartProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProtocols.swift; sourceTree = "<group>"; };
 		19895128290EA5D1006BEAC6 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
 		19895129290EA5D1006BEAC6 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		19C67E1529112BF1009AE5C7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		19C67E1729112BF4009AE5C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1AF43A9BD72189D986BDC44E /* Pods_YoMeda_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoMeda_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03120379DCD08E74532C6F0 /* Pods-YoMeda-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoMeda-App.debug.xcconfig"; path = "Target Support Files/Pods-YoMeda-App/Pods-YoMeda-App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,10 +247,12 @@
 		197ACA87290B44DA007D8DC3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				19C67E1129112B9C009AE5C7 /* Localization */,
 				197ACA88290B44F9007D8DC3 /* ShadowView.swift */,
 				1965751B290C89F400CD83ED /* PMSuperButton.swift */,
 				1965752C290CE46E00CD83ED /* Extensions.swift */,
 				196A62EA291077B1003D07C3 /* UserDefaults.swift */,
+				1916186629109D18001D7F14 /* Language.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -309,6 +316,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		19C67E1129112B9C009AE5C7 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				19C67E1629112BF1009AE5C7 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		5CE9A9042C81809A4D3DB5A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +377,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 197ACA55290A13B0007D8DC3;
 			productRefGroup = 197ACA5F290A13B0007D8DC3 /* Products */;
@@ -381,6 +397,7 @@
 				19657513290C6FD600CD83ED /* SearchItemCell.xib in Resources */,
 				197ACA71290A13B6007D8DC3 /* LaunchScreen.storyboard in Resources */,
 				197F1EA8290DFDCB00844BD9 /* CartVC.xib in Resources */,
+				19C67E1429112BF1009AE5C7 /* Localizable.strings in Resources */,
 				1965752B290CDB5000CD83ED /* Assets.xcassets in Resources */,
 				1989512B290EA5D2006BEAC6 /* CartItemCell.xib in Resources */,
 				197ACA85290B2478007D8DC3 /* SearchVC.xib in Resources */,
@@ -474,6 +491,7 @@
 				1965750F290B680A00CD83ED /* Complaints.swift in Sources */,
 				197ACA89290B44F9007D8DC3 /* ShadowView.swift in Sources */,
 				197F1EA0290DFD9500844BD9 /* CartInteractor.swift in Sources */,
+				1916186729109D18001D7F14 /* Language.swift in Sources */,
 				1965750D290B67B600CD83ED /* MedicationItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +507,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		19C67E1629112BF1009AE5C7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19C67E1529112BF1009AE5C7 /* ar */,
+				19C67E1729112BF4009AE5C7 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -496,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -558,6 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: - View Protocol
 protocol SearchViewProtocol {
@@ -23,6 +24,7 @@ protocol SearchInteractorProtocol {
     
     func fetchItems(queryText: String)
     func saveToCoreData(item: CartItemEntity)
+    func updateCoreDataItem(itemId: String, count : Int)
 }
 
 //MARK: - Presenter Protocol

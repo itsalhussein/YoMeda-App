@@ -27,12 +27,16 @@ class SearchVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        localization()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
         tableView.register(SearchItemCell.nib, forCellReuseIdentifier: SearchItemCell.identifier)
         UserDefaultsConstants.cartCount = 0
         UserDefaultsConstants.totalAmount = 0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default
             .addObserver(self,
                          selector:#selector(updateTotal(_:)),
@@ -49,6 +53,10 @@ class SearchVC: UIViewController{
         }
         self.cartCountLabel.text = "\(UserDefaultsConstants.cartCount)"
         self.totalPriceLabel.text = "\(UserDefaultsConstants.totalAmount)"
+    }
+    
+    func localization(){
+        titleLabel.text = "Search".localiz()
     }
     
     
@@ -91,6 +99,8 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchItemCell.identifier, for: indexPath) as! SearchItemCell
         var modelItemCount = self.presenter?.medsList?[indexPath.row].count ?? 0
         let modelItemprice = self.presenter?.medsList?[indexPath.row].price ?? 0.0
+        var itemID = self.presenter?.medsList?[indexPath.row].itemID
+
         cell.addToCartClosure = {
             self.presenter?.medsList?[indexPath.row].isAdded = true
             modelItemCount += 1
@@ -123,6 +133,7 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
             NotificationCenter.default
                 .post(name: Notification.Name("showTotalData"), object: nil)
             self.presenter?.medsList?[indexPath.row].count = modelItemCount
+            self.presenter?.interactor?.updateCoreDataItem(itemId: itemID ?? "", count: modelItemCount)
         }
         cell.plusClosure = {
             cellModel?.isAdded = true
@@ -133,8 +144,11 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
             NotificationCenter.default
                 .post(name: Notification.Name("showTotalData"), object: nil)
             self.presenter?.medsList?[indexPath.row].count = modelItemCount
+            self.presenter?.interactor?.updateCoreDataItem(itemId: itemID ?? "", count: modelItemCount)
         }
-        print("AH YANA","\(cellModel?.count)","\(cellModel?.isAdded)")
+        cell.saveItemToCart = {
+            self.presenter?.interactor?.saveToCoreData(item: (self.presenter?.medsList?[indexPath.row])!)
+        }
         cell.indexPathForCell = indexPath
         cell.configureCell(cellModel)
         return cell
