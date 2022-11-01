@@ -17,8 +17,8 @@ class SearchInteractor : SearchInteractorProtocol {
 
     func fetchItems(queryText: String) {
         let parameters = [
-            "indexFrom": "1",
-            "indexTo": "200",
+            "indexFrom": "0",
+            "indexTo": "20",
             "searchKey": queryText
         ]
         let url = URL(string: "http://40.127.194.127:5656/Salamtak/GetMedicationItems")!
@@ -28,13 +28,34 @@ class SearchInteractor : SearchInteractorProtocol {
                 if let data = response.data , let utf8Text = String(data: data, encoding: .utf8) {
                     if let networkResponse = response.response {
                         print(networkResponse)
-                        self.presenter?.medsFetched(medsList: value)
+                        let cartList = self.mapToCartList(value)
+                        self.presenter?.medsFetched(medsList: cartList)
                     }
                 }
             case .failure(let error):
                 self.presenter?.medsFetched(with: error.localizedDescription)
             }
         }
+    }
+    
+    func mapToCartList(_ model: MedicationItems) -> [CartItemEntity] {
+        var cartList : [CartItemEntity] = []
+        if let list = model.complaints {
+            for i in 0..<list.count {
+                let obj = CartItemEntity.init(itemID: list[i].id ?? "",
+                                              arabicName: list[i].arabicName ?? "",
+                                              englishName: list[i].englishName ?? "",
+                                              price: list[i].price ?? 0.0,
+                                              count: 0,
+                                              picURL: list[i].picUrl ?? "",
+                                              isAdded: false)
+                cartList.append(obj)
+            }
+            print("MAPPING CART MODEL SUCCESS",cartList)
+        } else {
+            print("MAPPING CART MODEL FAILED")
+        }
+        return cartList
     }
     
     func saveToCoreData(item: CartItemEntity) {

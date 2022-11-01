@@ -8,20 +8,19 @@
 import Foundation
 
 class SearchPresenter : SearchPresenterProtocol {
-    
     var view: SearchViewProtocol?
     var interactor: SearchInteractorProtocol?
     var router: SearchRouterProtocol?
 
-    var medsList : MedicationItems?
+    var medsList : [CartItemEntity]? 
     
     func startLoading(queryText: String){
         interactor?.fetchItems(queryText: queryText)
     }
 
-    func medsFetched(medsList: MedicationItems) {
+    func medsFetched(medsList: [CartItemEntity]) {
         self.medsList = medsList
-        self.view?.update(with: medsList)
+        self.view?.reloadTableView()
     }
 
     func medsFetched(with error: String) {
@@ -29,18 +28,17 @@ class SearchPresenter : SearchPresenterProtocol {
     }
 
     func getMedsCount() -> Int {
-        print("COUNT: - \(self.medsList?.complaints?.count)")
-        return self.medsList?.complaints?.count ?? 0
+        print("NEWCOUNT: - \(self.medsList?.count ?? 0)")
+        return self.medsList?.count ?? 0
     }
 
-    func getMedItem(at index: IndexPath) -> Complaints {
-        return self.medsList!.complaints![index.row]
+    func getMedItem(at index: IndexPath) -> CartItemEntity {
+        return self.medsList![index.row]
     }
     func removeMedItems(){
-        medsList?.complaints?.removeAll()
+        medsList?.removeAll()
     }
     func confirmMeds(){
         self.router?.routeToCart()
     }
-    
 }

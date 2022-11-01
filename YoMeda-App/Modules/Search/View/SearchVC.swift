@@ -22,8 +22,7 @@ class SearchVC: UIViewController{
     //MARK: - Properties
     var presenter: SearchPresenterProtocol?
     var searchActive : Bool = false
-    
-    
+
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -32,17 +31,24 @@ class SearchVC: UIViewController{
         tableView.dataSource = self
         searchBar.delegate = self
         tableView.register(SearchItemCell.nib, forCellReuseIdentifier: SearchItemCell.identifier)
+        UserDefaultsConstants.cartCount = 0
+        UserDefaultsConstants.totalAmount = 0
         NotificationCenter.default
             .addObserver(self,
                          selector:#selector(updateTotal(_:)),
-                         name: NSNotification.Name ("com.updateCalc.search"),
+                         name: NSNotification.Name ("showTotalData"),
                          object: nil)
     }
     //MARK: - Methods
     
     @objc func updateTotal(_ notification: Notification){
-        print("NOTIFICATION OBSERVER <><><><><><><>")
-        print(notification.userInfo?["itemInfo"] as? [String: Any] ?? [:])
+        if UserDefaultsConstants.cartCount == 0 {
+            self.confirmView.isHidden = true
+        } else {
+            self.confirmView.isHidden = false
+        }
+        self.cartCountLabel.text = "\(UserDefaultsConstants.cartCount)"
+        self.totalPriceLabel.text = "\(UserDefaultsConstants.totalAmount)"
     }
     
     
@@ -58,6 +64,12 @@ class SearchVC: UIViewController{
 
 //MARK: - Search View Protocol Methods
 extension SearchVC : SearchViewProtocol {
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func update(with items: MedicationItems) {
         self.tableView.reloadData()
     }
@@ -77,68 +89,54 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchItemCell.identifier, for: indexPath) as! SearchItemCell
-        let cellData = self.presenter?.getMedItem(at: indexPath)
-        cell.configreCell(cellData: cellData)
+        var modelItemCount = self.presenter?.medsList?[indexPath.row].count ?? 0
+        let modelItemprice = self.presenter?.medsList?[indexPath.row].price ?? 0.0
+        cell.addToCartClosure = {
+            self.presenter?.medsList?[indexPath.row].isAdded = true
+            modelItemCount += 1
+            cell.itemCount.text = "\(modelItemCount)"
+            UserDefaultsConstants.cartCount += 1
+            UserDefaultsConstants.totalAmount += modelItemprice
+            NotificationCenter.default
+                .post(name: Notification.Name("showTotalData"), object: nil)
+            self.presenter?.medsList?[indexPath.row].count = modelItemCount
+        }
+        var cellModel = self.presenter?.getMedItem(at: indexPath)
+        cell.minusClosure = {
+            cellModel?.isAdded = true
+            if (modelItemCount == 1){
+                cell.addToCartButton.isHidden = false
+                cell.plusAndMinusView.isHidden = true
+                modelItemCount -= 1
+                UserDefaultsConstants.cartCount -= 1
+                UserDefaultsConstants.totalAmount -= modelItemprice
+            } else if (modelItemCount == 0) {
+              cell.addToCartButton.isHidden = false
+              cell.plusAndMinusView.isHidden = true
+              print("0 Tapped")
+            } else {
+                modelItemCount -= 1
+                cell.itemCount.text = "\(modelItemCount)"
+                UserDefaultsConstants.cartCount -= 1
+                UserDefaultsConstants.totalAmount -= modelItemprice
+            }
+            NotificationCenter.default
+                .post(name: Notification.Name("showTotalData"), object: nil)
+            self.presenter?.medsList?[indexPath.row].count = modelItemCount
+        }
+        cell.plusClosure = {
+            cellModel?.isAdded = true
+            modelItemCount += 1
+            cell.itemCount.text = "\(modelItemCount)"
+            UserDefaultsConstants.cartCount += 1
+            UserDefaultsConstants.totalAmount += modelItemprice
+            NotificationCenter.default
+                .post(name: Notification.Name("showTotalData"), object: nil)
+            self.presenter?.medsList?[indexPath.row].count = modelItemCount
+        }
+        print("AH YANA","\(cellModel?.count)","\(cellModel?.isAdded)")
         cell.indexPathForCell = indexPath
-        cell.saveItemToCart = { count in
-            let entity = CartItemEntity(itemID: cellData?.id ?? "",arabicName: cellData?.arabicName ?? "", englishName: cellData?.englishName ?? "", price: cellData?.price ?? 0.0, count: count , picURL: cellData?.picUrl ?? "")
-            print("PRINT ENTITY : - ",entity)
-            self.presenter?.interactor?.saveToCoreData(item: entity)
-        }
-        cell.minusBTNClosure = { tag in
-            if (tag == indexPath.row) {
-                let count = Int(cell.itemCount.text ?? "0")
-                guard let count = count else { return }
-                if (count == 1) {
-                    cell.addToCartButton.isHidden = false
-                    cell.plusAndMinusView.isHidden = true
-                }
-                cell.itemsCount = count - 1
-                cell.itemCount.text = "\(cell.itemsCount)"
-                print("COUNT MATE : - ",cell.itemsCount)
-                
-                let countInfo = ["itemInfo": ["count": cell.itemsCount, "price": cellData?.price]]
-                NotificationCenter.default
-                    .post(name: NSNotification.Name("com.updateCalc.search"),
-                          object: nil,
-                          userInfo: countInfo)
-            }
-            
-        }
-        cell.addToCartClosure = { tag in
-            if (tag == indexPath.row) {
-                cell.addToCartButton.isHidden = true
-                cell.plusAndMinusView.isHidden = false
-                self.confirmView.isHidden = false
-            
-                let count = Int(cell.itemCount.text ?? "0")
-                guard let count = count else { return }
-                cell.itemsCount = count + 1
-                //SAVE TO CART
-                cell.saveItemToCart?(cell.itemsCount)
-                cell.itemCount.text = "\(cell.itemsCount)"
-                let countInfo = ["itemInfo": ["count": cell.itemsCount, "price": cellData?.price]]
-                NotificationCenter.default
-                    .post(name: NSNotification.Name("com.updateCalc.search"),
-                          object: nil,
-                          userInfo: countInfo)
-            }
-        }
-        cell.plusBTNClosure = { tag in
-            if (tag == indexPath.row) {
-                let count = Int(cell.itemCount.text ?? "0")
-            guard let count = count else { return }
-                cell.itemsCount = count + 1
-                cell.itemCount.text = "\(cell.itemsCount)"
-                print("COUNT MATE : - ",cell.itemsCount)
-                let countInfo = ["itemInfo": ["count": cell.itemsCount, "price": cellData?.price]]
-                NotificationCenter.default
-                    .post(name: NSNotification.Name("com.updateCalc.search"),
-                          object: nil,
-                          userInfo: countInfo)
-            }
-              
-        }
+        cell.configureCell(cellModel)
         return cell
     }
 }

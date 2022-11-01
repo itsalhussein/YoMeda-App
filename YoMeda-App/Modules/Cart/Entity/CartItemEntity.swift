@@ -14,4 +14,5 @@ struct CartItemEntity {
     var price = 0.0
     var count = 0
     var picURL = ""
+    var isAdded = false
 }

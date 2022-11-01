@@ -12,6 +12,7 @@ protocol SearchViewProtocol {
     var presenter: SearchPresenterProtocol? { get set }
     
     func update(with items: MedicationItems)
+    func reloadTableView()
     func updateWithError(with error: String)
 }
 
@@ -30,16 +31,16 @@ protocol SearchPresenterProtocol {
     var router : SearchRouterProtocol? { get set }
     var interactor : SearchInteractorProtocol? { get set }
     var view : SearchViewProtocol? { get set }
+    var medsList : [CartItemEntity]? { get set}
 
-    
     //interactor
-    func medsFetched(medsList: MedicationItems)
+    func medsFetched(medsList: [CartItemEntity])
     func medsFetched(with error: String)
     
     // view
     func startLoading(queryText: String)
     func getMedsCount() -> Int
-    func getMedItem(at index: IndexPath) -> Complaints
+    func getMedItem(at index: IndexPath) -> CartItemEntity
     func removeMedItems()
     func confirmMeds()
 }
