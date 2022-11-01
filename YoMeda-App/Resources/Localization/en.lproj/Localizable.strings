@@ -5,6 +5,12 @@
   Created by Hussein Anwar on 01/11/2022.
   
 */
-
+"Cart" = "Cart";
 "Search" = "Search";
-"Items" = "Items";
+"Items" = "Items x";
+"LE" = " LE";
+"Confirm" = "Confirm";
+"Add to Cart" = "Add to cart";
+"deliveryFeesLabel" = "Delivery fees";
+"deliveryFeesValue" = "Varies by region";
+"checkoutNoteLabel" = "Product prices may vary in different pharmacies";
