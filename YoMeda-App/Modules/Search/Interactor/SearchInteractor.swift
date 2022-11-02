@@ -10,14 +10,14 @@ import Alamofire
 import CoreData
 
 class SearchInteractor : SearchInteractorProtocol {
-    
     var presenter: SearchPresenterProtocol?
     var cartItems: [NSManagedObject] = []
 
-    func fetchItems(queryText: String) {
+    func fetchItems(queryText: String, startIndex: String, endIndex: String) {
+        self.presenter?.view?.isFetchingItems = true
         let parameters = [
-            "indexFrom": "0",
-            "indexTo": "200",
+            "indexFrom": startIndex,
+            "indexTo": endIndex,
             "searchKey": queryText
         ]
         let url = URL(string: "http://40.127.194.127:5656/Salamtak/GetMedicationItems")!
@@ -29,6 +29,10 @@ class SearchInteractor : SearchInteractorProtocol {
                         print(networkResponse)
                         let cartList = self.mapToCartList(value)
                         self.presenter?.medsFetched(medsList: cartList)
+                        self.presenter?.view?.startIndex += 10
+                        self.presenter?.view?.endIndex += 10
+                        print("I'M INSIDE API CALL ",self.presenter?.view?.startIndex," ------ ",self.presenter?.view?.endIndex)
+                        self.presenter?.view?.isFetchingItems = false
                     }
                 }
             case .failure(let error):

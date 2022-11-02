@@ -22,6 +22,10 @@ class SearchVC: UIViewController{
     
     //MARK: - Properties
     var presenter: SearchPresenterProtocol?
+    public var isFetchingItems = false
+    public var startIndex = 0
+    public var endIndex = 10
+    public var queryText : String?
 
     //MARK: - Life Cycle
     
@@ -29,6 +33,7 @@ class SearchVC: UIViewController{
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         searchBar.delegate = self
         tableView.register(SearchItemCell.nib, forCellReuseIdentifier: SearchItemCell.identifier)
     }
@@ -98,6 +103,19 @@ extension SearchVC : SearchViewProtocol {
 
 //MARK: - Table View Delegate Methods
 
+extension SearchVC: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            guard let count = self.presenter?.medsList.count else { return }
+            if ( index.row >= count - 3 ) && !isFetchingItems {
+                self.presenter?.interactor?.fetchItems(queryText: queryText ?? "", startIndex: "\(startIndex)", endIndex: "\(endIndex)")
+                print("I'M INSIDE PREFETCHING ",startIndex," ------ ",endIndex)
+                break
+            }
+        }
+    }
+}
+
 extension SearchVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.presenter?.getMedsCount() ?? 0
@@ -105,19 +123,19 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchItemCell.identifier, for: indexPath) as! SearchItemCell
-        var modelItemCount = self.presenter?.medsList?[indexPath.row].count ?? 0
-        let modelItemprice = self.presenter?.medsList?[indexPath.row].price ?? 0.0
-        var itemID = self.presenter?.medsList?[indexPath.row].itemID
+        var modelItemCount = self.presenter?.medsList[indexPath.row].count ?? 0
+        let modelItemprice = self.presenter?.medsList[indexPath.row].price ?? 0.0
+        var itemID = self.presenter?.medsList[indexPath.row].itemID
 
         cell.addToCartClosure = {
-            self.presenter?.medsList?[indexPath.row].isAdded = true
+            self.presenter?.medsList[indexPath.row].isAdded = true
             modelItemCount += 1
             cell.itemCount.text = "\(modelItemCount)"
             UserDefaultsConstants.cartCount += 1
             UserDefaultsConstants.totalAmount += modelItemprice
             NotificationCenter.default
                 .post(name: Notification.Name("showTotalData"), object: nil)
-            self.presenter?.medsList?[indexPath.row].count = modelItemCount
+            self.presenter?.medsList[indexPath.row].count = modelItemCount
         }
         var cellModel = self.presenter?.getMedItem(at: indexPath)
         cell.minusClosure = {
@@ -140,7 +158,7 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
             }
             NotificationCenter.default
                 .post(name: Notification.Name("showTotalData"), object: nil)
-            self.presenter?.medsList?[indexPath.row].count = modelItemCount
+            self.presenter?.medsList[indexPath.row].count = modelItemCount
             self.presenter?.interactor?.updateCoreDataItem(itemId: itemID ?? "", count: modelItemCount)
         }
         cell.plusClosure = {
@@ -151,11 +169,11 @@ extension SearchVC: UITableViewDelegate,UITableViewDataSource {
             UserDefaultsConstants.totalAmount += modelItemprice
             NotificationCenter.default
                 .post(name: Notification.Name("showTotalData"), object: nil)
-            self.presenter?.medsList?[indexPath.row].count = modelItemCount
+            self.presenter?.medsList[indexPath.row].count = modelItemCount
             self.presenter?.interactor?.updateCoreDataItem(itemId: itemID ?? "", count: modelItemCount)
         }
         cell.saveItemToCart = {
-            self.presenter?.interactor?.saveToCoreData(item: (self.presenter?.medsList?[indexPath.row])!)
+            self.presenter?.interactor?.saveToCoreData(item: (self.presenter?.medsList[indexPath.row])!)
         }
         cell.indexPathForCell = indexPath
         cell.configureCell(cellModel)
@@ -200,6 +218,7 @@ extension SearchVC : UISearchBarDelegate {
             return
         }
         print(query)
-        self.presenter?.startLoading(queryText: query)
+        queryText = query
+        self.presenter?.fetchItems(queryText: query, startIndex: "0", endIndex: "10")
     }
 }

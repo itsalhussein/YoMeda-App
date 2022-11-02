@@ -13,7 +13,7 @@ class SearchPresenter : SearchPresenterProtocol {
     var interactor: SearchInteractorProtocol?
     var router: SearchRouterProtocol?
 
-    var medsList : [CartItemEntity]?
+    var medsList : [CartItemEntity] = []
     
     init(view: SearchViewProtocol, interactor: SearchInteractorProtocol?, router: SearchRouterProtocol) {
            self.view = view
@@ -21,12 +21,12 @@ class SearchPresenter : SearchPresenterProtocol {
            self.router = router
     }
     
-    func startLoading(queryText: String){
-        interactor?.fetchItems(queryText: queryText)
+    func fetchItems(queryText: String, startIndex: String, endIndex: String){
+        interactor?.fetchItems(queryText: queryText, startIndex: startIndex, endIndex: endIndex)
     }
 
     func medsFetched(medsList: [CartItemEntity]) {
-        self.medsList = medsList
+        self.medsList.append(contentsOf: medsList)
         self.view?.reloadTableView()
     }
 
@@ -35,15 +35,15 @@ class SearchPresenter : SearchPresenterProtocol {
     }
 
     func getMedsCount() -> Int {
-        print("NEWCOUNT: - \(self.medsList?.count ?? 0)")
-        return self.medsList?.count ?? 0
+        print("NEWCOUNT: - \(self.medsList.count ?? 0)")
+        return self.medsList.count ?? 0
     }
 
     func getMedItem(at index: IndexPath) -> CartItemEntity {
-        return self.medsList![index.row]
+        return self.medsList[index.row]
     }
     func removeMedItems(){
-        medsList?.removeAll()
+        medsList.removeAll()
     }
     func confirmMeds(){
         self.router?.routeToCart()

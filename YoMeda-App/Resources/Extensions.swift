@@ -14,22 +14,6 @@ extension String {
     }
 }
 
-extension UINavigationController {
-    func setNavBarImage(_ image:UIImage?) {
-        
-        guard let image = image  else {return}
-        
-        self.navigationBar.setBackgroundImage(image, for: .default)
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.isTranslucent = true
-        
-        //clear statusBar color
-        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-        statusBar?.backgroundColor = UIColor.clear
-    }
-    
-}
-
 extension UIViewController{
     func toroot() {
             AppDelegate.window = UIWindow(frame: UIScreen.main.bounds)

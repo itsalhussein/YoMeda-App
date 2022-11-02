@@ -11,6 +11,11 @@ import UIKit
 //MARK: - View Protocol
 protocol SearchViewProtocol {
     var presenter: SearchPresenterProtocol? { get set }
+    var startIndex : Int { get set }
+    var endIndex : Int { get set }
+    var queryText : String? { get set }
+    var isFetchingItems : Bool { get set }
+
     
     func update(with items: MedicationItems)
     func reloadTableView()
@@ -22,7 +27,7 @@ protocol SearchViewProtocol {
 protocol SearchInteractorProtocol {
     var presenter: SearchPresenterProtocol?  { get set }
     
-    func fetchItems(queryText: String)
+    func fetchItems(queryText: String, startIndex: String, endIndex: String)
     func saveToCoreData(item: CartItemEntity)
     func updateCoreDataItem(itemId: String, count : Int)
 }
@@ -33,14 +38,13 @@ protocol SearchPresenterProtocol {
     var router : SearchRouterProtocol? { get set }
     var interactor : SearchInteractorProtocol? { get set }
     var view : SearchViewProtocol? { get set }
-    var medsList : [CartItemEntity]? { get set}
-
+    var medsList : [CartItemEntity] { get set}
     //interactor
     func medsFetched(medsList: [CartItemEntity])
     func medsFetched(with error: String)
     
     // view
-    func startLoading(queryText: String)
+    func fetchItems(queryText: String, startIndex: String, endIndex: String)
     func getMedsCount() -> Int
     func getMedItem(at index: IndexPath) -> CartItemEntity
     func removeMedItems()
