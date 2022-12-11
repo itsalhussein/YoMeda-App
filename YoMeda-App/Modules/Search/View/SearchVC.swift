@@ -109,7 +109,6 @@ extension SearchVC: UITableViewDataSourcePrefetching {
             guard let count = self.presenter?.medsList.count else { return }
             if ( index.row >= count - 3 ) && !isFetchingItems {
                 self.presenter?.interactor?.fetchItems(queryText: queryText ?? "", startIndex: "\(startIndex)", endIndex: "\(endIndex)")
-                print("I'M INSIDE PREFETCHING ",startIndex," ------ ",endIndex)
                 break
             }
         }

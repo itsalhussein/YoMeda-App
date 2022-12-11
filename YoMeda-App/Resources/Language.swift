@@ -71,7 +71,6 @@ class Language {
         alert.addAction(UIAlertAction(title: "English", style: .default, handler: { (_) in
             print("User click English button")
             Language.setAppLanguage(language: "en")
-            view.toroot()
         }))
         
         alert.addAction(UIAlertAction(title: "Arabic", style: .default, handler: { (_) in
